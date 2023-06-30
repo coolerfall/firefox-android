@@ -94,8 +94,7 @@ class FxaWebChannelFeature(
         scope?.cancel()
     }
 
-    @Suppress("MaxLineLength", "")
-    /* ktlint-disable no-multi-spaces */
+    @Suppress("ktlint:standard:no-multi-spaces", "MaxLineLength")
     /**
      * Communication channel is established from fxa-web-content to this class via webextension, as follows:
      * [fxa-web-content] <--js events--> [fxawebchannel.js webextension] <--port messages--> [FxaWebChannelFeature]
@@ -103,7 +102,7 @@ class FxaWebChannelFeature(
      * Overall message flow, as implemented by this class, is documented below. For detailed message descriptions, see:
      * https://github.com/mozilla/fxa/blob/master/packages/fxa-content-server/docs/relier-communication-protocols/fx-webchannel.md
      *
-     * [fxa-web-channel]            [FxaWebChannelFeature]         Notes:
+     * [fxa-web-channel]            [FxaWebChannelFeature]      Notes:
      *     loaded           ------>          |                  fxa web content loaded
      *     fxa-status       ------>          |                  web content requests account status & device capabilities
      *        |             <------ fxa-status-response         this class responds, based on state of [accountManager]
@@ -253,7 +252,7 @@ class FxaWebChannelFeature(
             messageId: String,
             fxaCapabilities: Set<FxaCapability>,
         ): JSONObject {
-            val status =  JSONObject()
+            val status = JSONObject()
             status.put("id", CHANNEL_ID)
             status.put(
                 "message",

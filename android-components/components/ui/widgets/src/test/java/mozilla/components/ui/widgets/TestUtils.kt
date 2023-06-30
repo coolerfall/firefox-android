@@ -49,13 +49,19 @@ object TestUtils {
         previousEvent: MotionEvent? = null,
     ): Array<MotionEvent.PointerCoords?> {
         val currentEventCoords = MotionEvent.PointerCoords().apply {
-            this.x = x; this.y = y; pressure = 1f; size = 1f
+            this.x = x
+            this.y = y
+            pressure = 1f
+            size = 1f
         }
 
         return if (pointerCount > 1 && previousEvent != null) {
             arrayOf(
                 MotionEvent.PointerCoords().apply {
-                    this.x = previousEvent.x; this.y = previousEvent.y; pressure = 1f; size = 1f
+                    this.x = previousEvent.x
+                    this.y = previousEvent.y
+                    pressure = 1f
+                    size = 1f
                 },
                 currentEventCoords,
             )
@@ -66,6 +72,7 @@ object TestUtils {
 
     private fun getPointerProperties(id: Int): MotionEvent.PointerProperties =
         MotionEvent.PointerProperties().apply {
-            this.id = id; this.toolType = MotionEvent.TOOL_TYPE_FINGER
+            this.id = id
+            this.toolType = MotionEvent.TOOL_TYPE_FINGER
         }
 }

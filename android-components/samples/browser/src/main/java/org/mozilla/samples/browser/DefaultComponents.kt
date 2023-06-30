@@ -227,7 +227,8 @@ open class DefaultComponents(private val applicationContext: Context) {
     }
 
     val defaultSearchUseCase by lazy {
-        { searchTerms: String ->
+        {
+                searchTerms: String ->
             searchUseCases.defaultSearch.invoke(
                 searchTerms = searchTerms,
                 searchEngine = null,
