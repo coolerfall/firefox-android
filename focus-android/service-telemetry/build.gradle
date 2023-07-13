@@ -19,15 +19,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    // This shouldn't be needed anymore with AGP 8.1.0+
+    // https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = '11'
-    }
 
     namespace 'org.mozilla.telemetry'
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 dependencies {
